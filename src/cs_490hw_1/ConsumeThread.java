@@ -9,6 +9,6 @@ package cs_490hw_1;
  *
  * @author Seth
  */
-public class RetrieveThread {
+public class ConsumeThread {
     
 }
