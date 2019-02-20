@@ -8,6 +8,7 @@ package cs_490hw_1;
 /**
  *
  * @author Seth
+ * @author Eli
  */
 
 
