@@ -47,6 +47,11 @@ public class Node {
     
     void execute() throws InterruptedException{
         Thread.sleep(this.timeSlice);
+        this.printExecutionReport();
+    }
+    
+    void printExecutionReport(){
+         System.out.println ("Process ID: " + processID + " Priority: " + Priority ); //TODO Print Time
     }
     
 }
