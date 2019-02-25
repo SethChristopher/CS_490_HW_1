@@ -14,10 +14,10 @@ public class Node {
     private int Priority;
     private int timeSlice;
     
-    public void Node(int PID, int PRI, int TIME){
-        this.processID = PID;
-        this.Priority = PRI;
-        this.timeSlice = TIME;
+    public void Node(){
+        this.processID = 1123;
+        this.Priority = 0;
+        this.timeSlice = 3000;
     }
     
     
