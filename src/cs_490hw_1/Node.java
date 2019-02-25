@@ -10,9 +10,9 @@ package cs_490hw_1;
  * @author Seth
  */
 public class Node {
-    private int processID;
-    private int Priority;
-    private int timeSlice;
+    int processID;
+    int Priority;
+    int timeSlice;
     
     public void Node(){
         this.processID = 1123;
