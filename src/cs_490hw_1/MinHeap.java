@@ -20,7 +20,7 @@ public class MinHeap {
         this.maxSize = maxSize;
         this.size = 0;
         nodeHeap = new Node[this.maxSize + 1];
-        nodeHeap[0] = Integer.MIN_VALUE;
+        nodeHeap[0] = new Node();
     }
     
     private int parent(int pos){
@@ -45,7 +45,7 @@ public class MinHeap {
     } 
     
     private void swap(int fpos, int spos){
-        int tmp;
+        Node tmp;
         tmp = nodeHeap[fpos];
         nodeHeap[fpos] = nodeHeap[spos];
         nodeHeap[spos] = tmp;
@@ -81,7 +81,7 @@ public class MinHeap {
         nodeHeap[++size] = element;
         int current = size;
         
-        while (nodeHeap[current].priority < nodeHeap[parent(current)]){
+        while (nodeHeap[current].Priority < nodeHeap[parent(current)].Priority){
             swap(current, parent(current));
             current = parent(current);
         }
@@ -98,9 +98,9 @@ public class MinHeap {
     
     // Function to remove and return the minimum 
     // element from the he
-    public int remove() 
+    public Node remove() 
     { 
-        int popped = nodeHeap[FRONT]; 
+        Node popped = nodeHeap[FRONT]; 
         nodeHeap[FRONT] = nodeHeap[size--]; 
         minHeapify(FRONT); 
         return popped; 
