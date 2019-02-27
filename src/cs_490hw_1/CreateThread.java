@@ -9,6 +9,19 @@ package cs_490hw_1;
  *
  * @author Seth
  */
-public class CreateThread {
-    
+public class CreateThread implements Runnable {
+    public void run(MinHeap heap){
+        try {
+            while(true){
+                Node myNode = new Node();
+                heap.insert(myNode);
+                Thread.sleep(1000);
+                throw new InterruptedException("oh no create is bad");
+            }
+        }
+        catch(InterruptedException exception) {
+            // cleanup
+        }
+    }
+
 }

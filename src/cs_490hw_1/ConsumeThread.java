@@ -9,6 +9,16 @@ package cs_490hw_1;
  *
  * @author Seth
  */
-public class ConsumeThread {
-    
+public class ConsumeThread implements Runnable {
+    public void run(MinHeap heap){
+        try {
+            // do work
+            Node myNode = heap.remove();
+            myNode.execute();
+            throw new InterruptedException("oh no consume is bad");
+        }
+        catch(InterruptedException exception) {
+            // cleanup
+        }
+    }
 }
