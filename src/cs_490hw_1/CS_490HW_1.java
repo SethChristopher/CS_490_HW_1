@@ -12,7 +12,6 @@ package cs_490hw_1;
  */
 
 
- 
 public class CS_490HW_1 {
 
     /**
@@ -20,6 +19,11 @@ public class CS_490HW_1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        MinHeap myHeap = new MinHeap(20);
+        CreateThread myCreation = new CreateThread();
+        ConsumeThread myConsumption = new ConsumeThread();
+        myCreation.run(myHeap);
+        myConsumption.equals(myHeap);
     }
     
 }
