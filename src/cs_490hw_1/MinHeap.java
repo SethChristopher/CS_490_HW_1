@@ -56,23 +56,26 @@ public class MinHeap {
     {
         // If the node is a non-leaf node and has greater 
         // priority than any of its children 
-        if(!isLeaf(pos)){
-            if(nodeHeap[pos].Priority > nodeHeap[leftChild(pos)].Priority
-                    ||nodeHeap[pos].Priority > nodeHeap[rightChild(pos)].Priority){
-                
-                // Swap with the left child and heapify 
-                // the left child 
-                if (nodeHeap[leftChild(pos)].Priority < nodeHeap[rightChild(pos)].Priority){
-                    swap(pos, leftChild(pos));
-                    minHeapify(leftChild(pos));
-                }  
-                // Swap with the right child and heapify  
-                // the right child 
-                else {
-                    swap(pos, rightChild(pos));
-                    minHeapify(rightChild(pos));
-                } 
+        try{
+            if(!isLeaf(pos)){
+                if(nodeHeap[pos].Priority > nodeHeap[leftChild(pos)].Priority||nodeHeap[pos].Priority > nodeHeap[rightChild(pos)].Priority){  
+                    // Swap with the left child and heapify 
+                    // the left child 
+                    if (nodeHeap[leftChild(pos)].Priority < nodeHeap[rightChild(pos)].Priority){
+                        swap(pos, leftChild(pos));
+                        minHeapify(leftChild(pos));
+                    }  
+                    // Swap with the right child and heapify  
+                    // the right child 
+                    else {
+                        swap(pos, rightChild(pos));
+                        minHeapify(rightChild(pos));
+                    } 
+                }
             }
+        }
+        catch(NullPointerException e){
+            
         }
     }
     
