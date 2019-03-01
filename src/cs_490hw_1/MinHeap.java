@@ -23,6 +23,10 @@ public class MinHeap {
         nodeHeap[0] = new Node();
     }
     
+    public int length(){
+        return size;
+    }
+    
     private int parent(int pos){
         return pos/2;
     }

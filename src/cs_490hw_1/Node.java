@@ -4,15 +4,17 @@
  * and open the template in the editor.
  */
 package cs_490hw_1;
-
+import java.util.Random;
+        
 /**
  *
  * @author Seth
  */
 public class Node {
-    int processID;
-    int Priority;
-    int timeSlice;
+    Random myRand = new Random();
+    int processID = myRand.nextInt(5000);
+    int Priority = myRand.nextInt(20);
+    int timeSlice = 3000;
     
     public void Node(){
         this.processID = 1123;
@@ -51,7 +53,7 @@ public class Node {
     }
     
     void printExecutionReport(){
-         System.out.println ("Process ID: " + processID + " Priority: " + Priority ); //TODO Print Time
+         System.out.println ("Process ID: " + this.processID + " Priority: " + this.Priority ); //TODO Print Time
     }
     
 }

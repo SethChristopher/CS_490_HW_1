@@ -19,11 +19,20 @@ public class CS_490HW_1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        MinHeap myHeap = new MinHeap(20);
+        MinHeap myHeap = new MinHeap(5);
         CreateThread myCreation = new CreateThread();
         ConsumeThread myConsumption = new ConsumeThread();
-        myCreation.run(myHeap);
-        myConsumption.run(myHeap);
+        for(int i = 0; i < 5; i++){
+            myCreation.run(myHeap);
+        }
+        while(true) {
+            if(myHeap.length() != 1){
+                myConsumption.run(myHeap);
+            }
+            else{
+                myConsumption.sleep();
+            }
+        }
     }
     
 }
