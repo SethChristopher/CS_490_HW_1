@@ -23,7 +23,7 @@ public class CS_490HW_1 {
         CreateThread myCreation = new CreateThread();
         ConsumeThread myConsumption = new ConsumeThread();
         myCreation.run(myHeap);
-        myConsumption.equals(myHeap);
+        myConsumption.run(myHeap);
     }
     
 }
