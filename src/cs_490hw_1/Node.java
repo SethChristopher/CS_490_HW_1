@@ -18,30 +18,6 @@ public class Node {
     int timeSlice = (myRand.nextInt(2)+1)*1000;
     Clock myClock = Clock.systemDefaultZone();
     
-    int getprocessID(){
-      return this.processID;  
-    }
-    
-    int getPriority(){
-        return this.Priority;
-    }
-    
-    int getTimeSlice(){
-        return this.timeSlice;
-    }
-    
-    void setProcessID(int PID){
-        this.processID = PID;
-    }
-    
-    void setPriority(int PRI){
-        this.Priority = PRI;
-    }
-    
-    void setTimeSlice(int TIME){
-        this.timeSlice = TIME;
-    }
-    
     void execute() throws InterruptedException{
         Thread.sleep(this.timeSlice);
         this.printExecutionReport();
