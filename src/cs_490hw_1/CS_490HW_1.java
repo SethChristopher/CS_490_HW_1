@@ -32,7 +32,7 @@ public class CS_490HW_1 {
                 myConsumption1.run(myHeap);
             }
             else{
-               //myConsumption.sleep();
+               break;
             }
         }
     }

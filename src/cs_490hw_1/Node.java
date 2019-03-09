@@ -15,7 +15,7 @@ public class Node {
     Random myRand = new Random();
     int processID = myRand.nextInt(5000);
     int Priority = myRand.nextInt(20);
-    int timeSlice = 3000;
+    int timeSlice = (myRand.nextInt(2)+1)*1000;
     Clock myClock = Clock.systemDefaultZone();
     
     int getprocessID(){
