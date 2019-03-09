@@ -22,15 +22,17 @@ public class CS_490HW_1 {
         MinHeap myHeap = new MinHeap(5);
         CreateThread myCreation = new CreateThread();
         ConsumeThread myConsumption = new ConsumeThread();
+        ConsumeThread myConsumption1 = new ConsumeThread();
         for(int i = 0; i < 5; i++){
             myCreation.run(myHeap);
         }
         while(true) {
             if(myHeap.length() != 1){
                 myConsumption.run(myHeap);
+                myConsumption1.run(myHeap);
             }
             else{
-                myConsumption.sleep();
+               //myConsumption.sleep();
             }
         }
     }

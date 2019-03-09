@@ -19,9 +19,9 @@ public class CreateThread implements Runnable {
     public void run(MinHeap heap){
         try {
                 myNode = new Node();
-                heap.insert(myNode);
+                heap.monitorInsert(myNode);
                 Thread.sleep(000);
-                monitor.notify();
+//                monitor.notify();
                 ///throw new InterruptedException("oh no create is bad");
         }
         catch(InterruptedException exception) {

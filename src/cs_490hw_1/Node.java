@@ -5,6 +5,7 @@
  */
 package cs_490hw_1;
 import java.util.Random;
+import java.time.Clock;
         
 /**
  *
@@ -15,13 +16,7 @@ public class Node {
     int processID = myRand.nextInt(5000);
     int Priority = myRand.nextInt(20);
     int timeSlice = 3000;
-    
-    public void Node(){
-        this.processID = 1123;
-        this.Priority = 0;
-        this.timeSlice = 3000;
-    }
-    
+    Clock myClock = Clock.systemDefaultZone();
     
     int getprocessID(){
       return this.processID;  
@@ -53,7 +48,7 @@ public class Node {
     }
     
     void printExecutionReport(){
-         System.out.println ("Process ID: " + this.processID + " Priority: " + this.Priority ); //TODO Print Time
+         System.out.println ("Process ID: " + this.processID + " Priority: " + this.Priority + " Time: " + myClock.instant() ); //TODO Print Time
     }
     
 }

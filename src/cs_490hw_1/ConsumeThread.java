@@ -16,13 +16,19 @@ public class ConsumeThread implements Runnable {
     public void run(MinHeap heap){
         try {
             // do work
-            monitor.wait();
-            myNode = heap.remove();
-            myNode.execute();
-            //throw new InterruptedException("oh no consume is bad");
+//            monitor.wait();
+            if (!heap.isHeaping()){
+                myNode = heap.remove();
+                myNode.execute();
+                //throw new InterruptedException("oh no consume is bad");
+            }
+            else{
+                throw new InterruptedException();
+            }
         }
         catch(InterruptedException exception) {
-            // cleanup
+            // stop immediately and go home
+            
         }
     }
 }

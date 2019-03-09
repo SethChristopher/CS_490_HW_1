@@ -13,6 +13,7 @@ public class MinHeap {
     private Node[] nodeHeap;
     private int size;
     private int maxSize;
+    private boolean heaping;
     
     private static final int FRONT = 1;
     
@@ -32,12 +33,12 @@ public class MinHeap {
     }
     
     private int leftChild(int pos){
-        return(2*pos);
+        return(2*pos) + 1;
     }
     
     private int rightChild(int pos) 
     { 
-        return (2 * pos) + 1; 
+        return (2 * pos) + 2; 
     } 
     
     private boolean isLeaf(int pos) 
@@ -54,10 +55,23 @@ public class MinHeap {
         nodeHeap[fpos] = nodeHeap[spos];
         nodeHeap[spos] = tmp;
     }
+    private void monitorHeapify(int posit){
+        heaping = true;
+        minHeapify(posit);
+        heaping = false;
+    }
+    
+   public void monitorInsert(Node element){
+       heaping = true;
+       insert(element);
+       heaping = false;
+   }
+   
     
     // Function to heapify the node at pos 
     private void minHeapify(int pos)
     {
+        
         // If the node is a non-leaf node and has greater 
         // priority than any of its children 
         try{
@@ -81,13 +95,14 @@ public class MinHeap {
         catch(NullPointerException e){
             
         }
+        heaping = false;
     }
     
     public void insert(Node element){
         element = new Node();
         nodeHeap[++size] = element;
+
         int current = size;
-        
         while (nodeHeap[current].Priority < nodeHeap[parent(current)].Priority){
             swap(current, parent(current));
             current = parent(current);
@@ -99,7 +114,7 @@ public class MinHeap {
     public void minHeap() 
     { 
         for (int pos = (size / 2); pos >= 1; pos--) { 
-            minHeapify(pos); 
+            monitorHeapify(pos); 
         } 
     } 
     
@@ -107,9 +122,12 @@ public class MinHeap {
     // element from the he
     public Node remove() 
     { 
-        Node popped = nodeHeap[FRONT]; 
-        nodeHeap[FRONT] = nodeHeap[size--]; 
-        minHeapify(FRONT); 
+        Node popped = nodeHeap[0]; 
+        nodeHeap[0] = nodeHeap[size--]; 
+        minHeapify(0); 
         return popped; 
     } 
+    public boolean isHeaping(){
+        return heaping;
+    }
 }
